@@ -11,17 +11,12 @@ var filter = function(dir, ext, callback) {
        return callback(err);
     }
 
-    var dirlist = [];
 
-    list.forEach(function(file) {
-
-       if (path.extname(file) === ext) {
-        dirlist.push(file);
-        }
-        
+    list = list.filter(function(file) {
+       return path.extname(file) === ext;      
     });
 
-    callback(null, dirlist);
+    callback(null, list);
 
 });
 
